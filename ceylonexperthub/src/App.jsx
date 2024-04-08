@@ -19,9 +19,9 @@ function App() {
           <Route path="/signup" element={<Sign_up />} />
           <Route path="/productCategory" element={<ProductCategory />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/selleranitem" element={<Sellanitem/>} />
         </Routes>
         <Footer />
-        <Sellanitem/>
       </div>
     </Router>
     

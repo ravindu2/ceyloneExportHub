@@ -22,8 +22,8 @@ const Navbar = ({ onNavigation }) => {
           <li className="hover:bg-gray-100 dark:hover:bg-gray-700 px-2 py-1.5 rounded-md">
             <a href="#">Help</a>
           </li>
-          <li className="hover:bg-gray-100 dark:hover:bg-gray-700 px-2 py-1.5 rounded-md">
-            <a href="#">Sell An Item</a>
+          <li>
+          <Link to="/selleranitem" className="hover:bg-gray-100 dark:hover:bg-gray-700 px-2 py-1.5 rounded-md">Sell An Item</Link>
           </li>
         </ul>
         <div className="hidden lg:flex items-center justify-center gap-5 text-[#432010] dark:text-[#010679]  text-sm">
