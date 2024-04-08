@@ -11,12 +11,12 @@ const Home = () => {
     <div>
       <div className="relative">
         <div className="flex justify-between">
-          <img src={MP1} alt="Image 1" className="w-1/4 h-100 relative" />
-          <img src={MP2} alt="Image 2" className="w-1/4 h-100 relative" />
-          <img src={MP3} alt="Image 3" className="w-1/4 h-100 relative" />
-          <img src={MP4} alt="Image 4" className="w-1/4 h-100 relative" />
-          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center">
-            <div className="text-white text-8xl font-bold">CeylonExportHub</div>
+          <img src={MP1} alt="Image 1" className="relative w-1/4 h-100" />
+          <img src={MP2} alt="Image 2" className="relative w-1/4 h-100" />
+          <img src={MP3} alt="Image 3" className="relative w-1/4 h-100" />
+          <img src={MP4} alt="Image 4" className="relative w-1/4 h-100" />
+          <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-70">
+            <div className="font-bold text-white text-8xl">CeylonExportHub</div>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@ const Home = () => {
       <br />
 
       <div>
-        <div className="middle-pa text-center">
+        <div className="text-center middle-pa">
           <h1 className="text-3xl">Hello</h1>
           <div className="welcome text-[#010679]">
             <h1 className="text-3xl font-bold">Welcome To Ceylon ExportHub</h1>
@@ -47,7 +47,7 @@ const Home = () => {
       <SliderComponent />
       <br />
       <div>
-        <div className="middle-pa text-center">
+        <div className="text-center middle-pa">
           <h1 className="text-3xl">Our</h1>
           <div className="welcome text-[#010679]">
             <h1 className="text-3xl font-bold">Latest Products</h1>

@@ -82,27 +82,22 @@ const Footer = () => {
             </div>
             <div>
               <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Download
+                Contact Details
               </h2>
               <ul class="text-gray-500 dark:text-gray-400 font-medium">
                 <li class="mb-4">
                   <a href="#" class="hover:underline">
-                    iOS
+                    +94-11-22002222
                   </a>
                 </li>
                 <li class="mb-4">
                   <a href="#" class="hover:underline">
-                    Android
+                    ceylonexporthub@gmail.com
                   </a>
                 </li>
                 <li class="mb-4">
                   <a href="#" class="hover:underline">
-                    Windows
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    MacOS
+                    ceylonexporthub,colombo
                   </a>
                 </li>
               </ul>
