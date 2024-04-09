@@ -22,7 +22,7 @@ const SliderComponent = () => {
                     {data.map((d, index) => (
                         <div key={index} className="bg-white h-[250px] text-black">
                             <div>
-                                <img src={d.image} alt={d.name} className="h-44 w-44" />
+                                <img src={d.image} alt={d.name} className="h-50 " />
                             </div>
                             <div>
                                 <h1>{d.name}</h1>
