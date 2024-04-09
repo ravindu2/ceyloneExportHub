@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import SL1 from '../assets/slider/gemstone.jpeg';
 import SL2 from '../assets/slider/spices.jpeg';
 import SL3 from '../assets/slider/Traditional-masks-of-Sri-Lanka-5.jpg';
+import SL4 from '../assets/slider/Image-10.jpg';
 const SliderComponent = () => {
     const settings = {
         dots: true,
@@ -41,7 +42,7 @@ const data = [
     },
     {
         name: 'Cary Products',
-        image: ''
+        image: SL4
     },
     {
         name: 'Traditional Marks',
