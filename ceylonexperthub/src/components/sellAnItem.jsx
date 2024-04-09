@@ -67,14 +67,32 @@ const Sellanitem = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            
+            <div className="w-full">
+            <label className="block mb-4 text-sm font-medium text-gray-900 dark:text-white">
               Date of birth
             </label>
             <DatePicker
               selected={formData.date}
               onChange={handleDateChange}
-              className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
+                <label
+                  htmlFor="brand"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Address
+
+                </label>
+                <input
+                  type="text"
+                  name="brand"
+                  id="brand"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Product brand"
+                  required=""
+                />
+              </div>
             <label
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -196,7 +214,7 @@ const Sellanitem = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block mb-2 text-sm font-bold text-gray-700">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Upload Files
                 </label>
                 <input
