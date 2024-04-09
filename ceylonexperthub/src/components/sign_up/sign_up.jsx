@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BG1 from "../sign_up/1.jpg";
 import logo from "../sign_up/ph_tidal-logo-bold.png";
 import { Link } from 'react-router-dom';
-import axios from 'axios'; // Import Axios for making HTTP requests
+import axios from 'axios'; 
 
 function Sign_up() {
   const [email, setEmail] = useState('');
@@ -19,12 +19,10 @@ function Sign_up() {
       });
       
       const { token } = response.data;
-      // Store the token in local storage or cookies
       localStorage.setItem('token', token);
       
-      // Redirect to a different page or perform any action upon successful sign-in
     } catch (error) {
-      // Handle errors from backend (e.g., invalid credentials)
+      console.log(error);
       setError('Invalid email or password');
     }
   };
