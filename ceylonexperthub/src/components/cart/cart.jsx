@@ -23,55 +23,39 @@ const Cart = () => {
               </h3>
             </div>
             {/* Product 1 */}
-            <div className="flex items-center px-6 py-5 -mx-8 hover:bg-gray-100">
-              {/* Product Image */}
-              <div className="flex w-2/5">
-                <div className="w-20">
-                  <img
-                    className="h-24"
-                    src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z"
-                    alt=""
-                  />
-                </div>
-                <div className="flex flex-col justify-between flex-grow ml-4">
-                  <span className="text-sm font-bold">Traditional mask</span>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-gray-500 hover:text-red-500"
-                  >
-                    Remove
-                  </a>
-                </div>
-              </div>
-              {/* Quantity */}
-              <div className="flex justify-center w-1/5">
-                {/* Decrease Quantity */}
-                <svg
-                  className="w-3 text-gray-600 fill-current"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-                <input
-                  className="w-8 mx-2 text-center border"
-                  type="text"
-                  value="1"
-                />
-                {/* Increase Quantity */}
-                <svg
-                  className="w-3 text-gray-600 fill-current"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                </svg>
-              </div>
-              <span className="w-1/5 text-sm font-semibold text-center">
-                $400.00
-              </span>
-              <span className="w-1/5 text-sm font-semibold text-center">
-                $400.00
-              </span>
-            </div>
+           {/* Product 1 */}
+{cart_item.map((item) => (
+  <div className="flex items-center px-6 py-5 -mx-8 hover:bg-gray-100" key={item.name}>
+    {/* Product Image */}
+    <div className="flex w-2/5">
+      <div className="w-20">
+        {/* Use item.img here for the image src */}
+        <img className="h-24" src={item.img} alt="" />
+      </div>
+      <div className="flex flex-col justify-between flex-grow ml-4">
+        <span className="text-sm font-bold">{item.name}</span>
+        <a href="#" className="text-xs font-semibold text-gray-500 hover:text-red-500">
+          Remove
+        </a>
+      </div>
+    </div>
+    {/* Quantity */}
+    <div className="flex justify-center w-1/5">
+      {/* Decrease Quantity */}
+      <svg className="w-3 text-gray-600 fill-current" viewBox="0 0 448 512">
+        <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+      </svg>
+      <input className="w-8 mx-2 text-center border" type="text" value="1" />
+      {/* Increase Quantity */}
+      <svg className="w-3 text-gray-600 fill-current" viewBox="0 0 448 512">
+        <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+      </svg>
+    </div>
+    <span className="w-1/5 text-sm font-semibold text-center">{item.price}</span>
+    <span className="w-1/5 text-sm font-semibold text-center">$400.00</span>
+  </div>
+))}
+
             {/* Product 2 and 3 go here */}
             {/* Continue Shopping */}
             <a
@@ -136,5 +120,13 @@ const Cart = () => {
     </>
   );
 };
+
+const cart_item = [
+  {
+    name:'traditinol mask',
+    price:'22',
+    img:''
+  }
+]
 
 export default Cart;
