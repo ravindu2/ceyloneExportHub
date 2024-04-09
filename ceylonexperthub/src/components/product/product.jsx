@@ -84,7 +84,7 @@ const ProductCategory = () => {
         </div>
         <div className="grid grid-cols-4 gap-10 px-16">
           {filteredList.map((element) => (
-            <Item {...element} key={`${element.name}-${element.category}-${element.image}-${element.price}`} />
+            <Item {...element} key={`${element.name}-${element.category}-${element.image}-${element.price}-${element.image}`} />
           ))}
         </div>
       </div>

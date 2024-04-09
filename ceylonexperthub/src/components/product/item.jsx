@@ -1,11 +1,11 @@
 import React from "react";
 
 // React Component to display individual item
-const Item = ({ name, category, price }) => (
+const Item = ({ name, category, price, image }) => (
     <>
     <div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
   <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-    <img class="object-cover" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="product image" />
+    <img class="object-cover" src={image} alt="product image" />
 
   </a>
   <div class="mt-4 px-5 pb-5">
