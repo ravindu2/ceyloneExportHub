@@ -34,8 +34,7 @@ const Cart = () => {
                   />
                 </div>
                 <div className="flex flex-col justify-between flex-grow ml-4">
-                  <span className="text-sm font-bold">Iphone 6S</span>
-                  <span className="text-xs text-red-500">Apple</span>
+                  <span className="text-sm font-bold">Traditional mask</span>
                   <a
                     href="#"
                     className="text-xs font-semibold text-gray-500 hover:text-red-500"
