@@ -43,6 +43,10 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+app.get('/home', (req, res) => {
+  res.send('Welcome to the home page!');
+});
+
 app.post('/signin', async (req, res) => {
   const { email, password } = req.body;
 
@@ -56,10 +60,13 @@ app.post('/signin', async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-
+   
     const token = jwt.sign({ userId: user._id, email: user.email }, secretKey);
+    //return res.status(401).json({ message: 'Welcome, ${user.email}!'});
 
     res.json({ token });
+    //res.redirect('/home');
+    //res.json({ message: 'Welcome, ${user.email}!', token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });

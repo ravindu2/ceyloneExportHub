@@ -5,6 +5,27 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'; 
 
 function Sign_up() {
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [error, setError] = useState('');
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+    
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/signin', {
+  //       email,
+  //       password
+  //     });
+      
+  //     const { token } = response.data;
+  //     localStorage.setItem('token', token);
+      
+  //   } catch (error) {
+  //     console.log(error);
+  //     setError('Invalid email or password');
+  //   }
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,6 +41,9 @@ function Sign_up() {
       
       const { token } = response.data;
       localStorage.setItem('token', token);
+      
+      // Redirect the user to the home page upon successful sign-in
+      window.location.href = '/home';
       
     } catch (error) {
       console.log(error);

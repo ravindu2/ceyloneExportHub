@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import BG1 from "../sign_up/1.jpg";
 import logo from "../sign_up/ph_tidal-logo-bold.png";
+import axios from 'axios';
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
