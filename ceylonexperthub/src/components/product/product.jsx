@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import Item from "../product/item";
 import img1 from "../product/assets/1.jpeg";
 import img2 from "../product/assets/2.jpeg";
 import img3 from "../product/assets/3.jpeg";
@@ -20,61 +21,74 @@ import headerImage from "../product/assets/head image.jpeg";
 
 const ProductCategory = () => {
   const products = [
-    { name: "Antique", image: img1 },
-    { name: "Ayurvedic Product", image: img2 },
-    { name: "Bathik Items", image: img3 },
-    { name: "Ceylon Tea", image: img4 },
-    { name: "Clay Products", image: img5 },
-    { name: "Coconut & Based Products", image: img6 },
-    { name: "Dumbara Mats & Cane Boxes", image: img7 },
-    { name: "Flours", image: img8 },
-    { name: "Gems & Juwellery", image: img9 },
-    { name: "Handlooms", image: img10 },
-    { name: "Natural Healthy Products", image: img11 },
-    { name: "Poicelain Tableware", image: img12 },
-    { name: "Rubber", image: img13 },
-    { name: "Spieces", image: img14 },
-    { name: "Traditional Marks", image: img15 },
-    { name: "Traditional Organic Rice", image: img16 },
-    { name: "Wood Carving", image: img17 },
+    { name: "Antique", image: img1, category: "Other", price:"$231.12" },
+    { name: "Ayurvedic Product", image: img2, category: "Other", price:"$11.99" },
+    { name: "Bathik Items", image: img3, category: "BathikItems", price:"$21.24" },
+    { name: "Ceylon Tea", image: img4, category: "Other", price:"$91.12" },
+    { name: "Clay Products", image: img5, category: "Clay-Products", price:"$831.12" },
+    { name: "Coconut & Based Products", image: img6, category: "Other", price:"$31.12" },
+    { name: "Dumbara Mats & Cane Boxes", image: img7, category: "Other", price:"$81.12" },
+    { name: "Flours", image: img8, category: "Other", price:"$45.12" },
+    { name: "Gems & Juwellery", image: img9, category: "Gems&Juwellery", price:"$56.12" },
+    { name: "Handlooms", image: img10, category: "Other", price:"$34.12" },
+    { name: "Natural Healthy Products", image: img11, category: "Other", price:"$231.12" },
+    { name: "Poicelain Tableware", image: img12, category: "Other",price:"$24.00" },
+    { name: "Rubber", image: img13, category: "Other", price:"$31.12" },
+    { name: "Spieces", image: img14, category: "Spieces", price:"$23.12" },
+    { name: "Traditional Marks", image: img15, category: "Other", price:"$231.12" },
+    { name: "Traditional Organic Rice", image: img16, category: "Other", price:"$231.12" },
+    { name: "Wood Carving", image: img17, category: "Other", price:"$231.12" },
   ];
 
+  const [productList, setProductList] = useState(products);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  // Function to get filtered list
+  const getFilteredList = () => {
+    // Avoid filter when selectedCategory is null
+    if (!selectedCategory) {
+      return productList;
+    }
+    return productList.filter((item) => item.category === selectedCategory);
+  };
+
+  // Avoid duplicate function calls with useMemo
+  const filteredList = useMemo(getFilteredList, [
+    selectedCategory,
+    productList,
+  ]);
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
   return (
-    <div>
-      <div>
-        <img src={headerImage} alt="Header" className="w-full h-auto" />
-      </div>
-      <div className="text-center">
-        <p className="text-xl font-semibold text-blue-900">Ceylon Product</p>
-        <p className="text-3xl font-semibold text-blue-900">
-          Select What You Want
-        </p>
-        <p className="mt-2 text-lg font-normal text-black">
-          Welcome to our Product Home. These product purely made in Sri Lankan
-          Traditional Products. You can select from here the product category
-          what you need and you can select the items and pay easily. Please
-          don’t forget to rate items if you are satisfied with them.
-        </p>
-      </div>
-      <br/>
-      <div className="grid grid-cols-4 gap-10 px-16">
-        {products.map((product, index) => (
-          <div
-            className="flex flex-col items-center p-1 border-2 border-blue-600 rounded-xl"
-            key={index}
+    <>
+      <div className="flex flex-col items-center justify-center min-h-screen gap-20 font-sans">
+        <div className="flex items-center gap-10">
+          Filter by Category:
+          <select
+            name="category-list"
+            id="category-list"
+            className="p-2"
+            onChange={handleCategoryChange}
+            value={selectedCategory}
           >
-            <img
-              src={product.image}
-              alt=""
-              className="h-52 w-52 rounded-t-xl"
-            />
-            <span className="h-12 pt-1 font-bold text-center border-t-2 border-blue-600 w-52">
-              {product.name}
-            </span>
-          </div>
-        ))}
+            <option value="">All</option>
+            <option value="Clay-Products">Clay Products</option>
+            <option value="Gems&Juwellery">Gems & Juwellery</option>
+            <option value="Spieces">Spieces</option>
+            <option value="BathikItems">Bathik Items</option>
+            <option value="Other">other</option>
+          </select>
+        </div>
+        <div className="grid grid-cols-4 gap-10 px-16">
+          {filteredList.map((element) => (
+            <Item {...element} key={`${element.name}-${element.category}-${element.image}-${element.price}-${element.image}`} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
