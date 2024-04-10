@@ -42,7 +42,6 @@ function Sign_up() {
       const { token } = response.data;
       localStorage.setItem('token', token);
       
-      // Redirect the user to the home page upon successful sign-in
       window.location.href = '/home';
       
     } catch (error) {
