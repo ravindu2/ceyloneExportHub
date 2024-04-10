@@ -47,12 +47,12 @@ const Home = () => {
       <SliderComponent />
       <br />
       
-        <div className="m-8 text-center middle-pa">
+        <div className="m-3 text-center middle-pa">
           <h1 className="text-3xl">Our</h1>
           <div className="welcome text-[#010679]">
-            <h1 className="text-3xl font-bold">Latest Products</h1>
+            <h1 className="text-3xl font-bold mt-2">Latest Products</h1>
           </div>
-          <p className="text-2xl">
+          <p className="text-2xl mt-2">
             Now you can check our latest product from here and get the best and
             the lowest selling price experience with CeylonExportHub us. You can
             buy the most uncommon traditional and culturally unique products in

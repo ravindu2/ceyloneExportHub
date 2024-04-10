@@ -36,13 +36,13 @@ const Features = () => {
 const features = [
   {
     index: "1",
-    img: FL1,
+    img: FL4,
     title: "Made In Sri Lanka",
     discription: "100% pure Sri Lankan made products",
   },
   {
     index: "2",
-    img: FL2,
+    img: FL1,
     title: "WorldWide Delivery",
     discription: "We ship to over 200 countries and regions",
   },
@@ -54,7 +54,7 @@ const features = [
   },
   {
     index: "4",
-    img: FL4,
+    img: FL2,
     title: "Money back Guarantee",
     discription: "30 days money back garantee",
   },

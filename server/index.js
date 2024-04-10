@@ -5,6 +5,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const UserModel = require('./models/products');
 const User = require('./models/user');
+const AllProducts = require('./models/allproducts');
 
 const app = express();
 app.use(cors());
@@ -16,20 +17,6 @@ mongoose.connect("mongodb://localhost:27017/ceylonexporthub", {
 });
 
 const secretKey = '5245245252';
-
-// const userSchema = new mongoose.Schema({
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true
-//   },
-//   password: {
-//     type: String,
-//     required: true
-//   }
-// });
-
-// const User = mongoose.model('User', userSchema);
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -62,38 +49,30 @@ app.post('/signin', async (req, res) => {
     }
    
     const token = jwt.sign({ userId: user._id, email: user.email }, secretKey);
-    //return res.status(401).json({ message: 'Welcome, ${user.email}!'});
 
     res.json({ token });
-    //res.redirect('/home');
-    //res.json({ message: 'Welcome, ${user.email}!', token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });
   }
 });
 
-// Registration endpoint
 app.post('/signup', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'Email already exists' });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user
     const newUser = new User({
       email: email,
       password: hashedPassword
     });
 
-    // Save the user to the database
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
@@ -102,6 +81,17 @@ app.post('/signup', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+
+app.post('/addProduct', async (req, res) => {
+  try {
+    const newProduct = await AllProducts.create(req.body);
+    res.status(201).json(newProduct);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
 
 app.get('/getProduct',  (req, res) => {
   UserModel.find()
